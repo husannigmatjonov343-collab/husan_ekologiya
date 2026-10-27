@@ -1,0 +1,11 @@
+{% extends "base.html" %}{% block title %}Aloqa — EkoDunyo{% endblock %}
+{% block content %}
+<section class="page-head"><h1>Biz bilan bog'laning</h1><p>Taklif, savol yoki ekologik muammo haqida xabar bering.</p></section>
+<section class="wrap narrow">
+{% if ok %}<div class="box good">✅ Xabaringiz qabul qilindi. Rahmat!</div>{% endif %}
+<form method="post" class="form box">
+  <label>Ism<input name="ism" required></label><label>Email<input type="email" name="email" required></label>
+  <label>Mavzu<select name="mavzu"><option>Taklif</option><option>Savol</option><option>Ekologik muammo haqida xabar</option><option>Volontyorlik</option></select></label>
+  <label>Xabar<textarea name="xabar" rows="5" required></textarea></label><button class="btn">Yuborish</button>
+</form></section>
+{% endblock %}

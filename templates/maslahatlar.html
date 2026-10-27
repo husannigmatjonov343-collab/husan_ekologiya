@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% block title %}Eko maslahatlar — EkoDunyo{% endblock %}
+{% block content %}
+<section class="page-head"><h1>Kundalik eko-maslahatlar</h1><p>Bajarganlaringizni belgilang — progress brauzerda saqlanadi.</p>
+<div class="progress-box"><div><i id="pbar"></i></div><span id="ptext">0%</span></div></section>
+<section class="wrap"><div class="grid three">{% for m in maslahatlar %}{% set g = loop.index0 %}
+  <div class="box reveal"><h3>{{ m.icon }} {{ m.kategoriya }}</h3>{% for t in m.list %}<label class="opt"><input type="checkbox" class="tip" data-id="{{ g }}-{{ loop.index0 }}"> {{ t }}</label>{% endfor %}</div>
+{% endfor %}</div></section>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% block title %}Ekologik muammolar — EkoDunyo{% endblock %}
+{% block content %}
+<section class="page-head"><h1>Ekologik muammolar</h1><p>Dunyo va mintaqamizdagi eng dolzarb 8 ta ekologik muammo.</p>
+<input id="filter" class="filter" placeholder="Muammoni filtrlash..."></section>
+<section class="wrap"><div class="grid" id="list">{% for m in muammolar %}
+  <a class="card reveal" data-name="{{ m.nomi|lower }}" href="/muammo/{{ m.slug }}"><div class="ic">{{ m.icon }}</div><b class="big">{{ m.raqam }}</b><h3>{{ m.nomi }}</h3><p>{{ m.qisqa }}</p><span class="more">Batafsil →</span></a>
+{% endfor %}</div></section>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}{% block title %}Karbon kalkulyatori — EkoDunyo{% endblock %}
+{% block content %}
+<section class="page-head"><h1>Karbon izi kalkulyatori</h1><p>Yillik CO₂ chiqindingizni taxminan hisoblang.</p></section>
+<section class="wrap narrow split">
+<form method="post" class="form box">
+  <label>Haftasiga avtomobilda (km)<input type="number" name="km" min="0" value="100"></label>
+  <label>Oyiga elektr (kVt·soat)<input type="number" name="elektr" min="0" value="200"></label>
+  <label>Oyiga gaz (m³)<input type="number" name="gaz" min="0" value="80"></label>
+  <label>Yiliga parvozlar soni (soat)<input type="number" name="parvoz" min="0" value="4"></label>
+  <label>Haftasiga go'shtli taomlar (kg)<input type="number" name="gosht" min="0" value="2"></label>
+  <button class="btn">Hisoblash</button>
+</form>
+<div class="box">{% if natija %}
+  <h3>Natija</h3><b class="big">{{ "%.0f"|format(natija.jami) }} kg CO₂ / yil</b>
+  <p>Daraja: <span class="tag">{{ natija.daraja }}</span></p>
+  {% for k,v in natija.qismlar.items() %}<div class="bar"><span>{{ k }}</span><div><i style="width:{{ (v/natija.jami*100) if natija.jami else 0 }}%"></i></div><small>{{ "%.0f"|format(v) }}</small></div>{% endfor %}
+  <p>🌳 Buni qoplash uchun yiliga <b>{{ natija.daraxt }}</b> ta daraxt kerak.</p>
+  <p><small>O'rtacha dunyo ko'rsatkichi: ~4700 kg / yil.</small></p>
+{% else %}<h3>Qanday ishlaydi?</h3><p>Ma'lumotlarni kiriting va "Hisoblash" tugmasini bosing. Hisob taxminiy koeffitsientlarga asoslangan.</p>{% endif %}</div>
+</section>
+{% endblock %}

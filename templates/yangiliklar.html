@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% block title %}Yangiliklar — EkoDunyo{% endblock %}
+{% block content %}
+<section class="page-head"><h1>Eko yangiliklar</h1>
+<div class="chips"><a href="/yangiliklar" class="chip {{ 'on' if not tanlangan }}">Barchasi</a>{% for k in kats %}<a href="/yangiliklar?kategoriya={{ k }}" class="chip {{ 'on' if k==tanlangan }}">{{ k }}</a>{% endfor %}</div></section>
+<section class="wrap"><div class="grid three">{% for y in items %}
+  <article class="news reveal"><span class="tag">{{ y.kategoriya }}</span><h3>{{ y.sarlavha }}</h3><p>{{ y.matn }}</p><small>{{ y.sana }}</small></article>
+{% endfor %}</div></section>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "base.html" %}{% block title %}O'zbekiston ekologiyasi — EkoDunyo{% endblock %}
+{% block content %}
+<section class="page-head"><h1>O'zbekiston ekologiyasi</h1><p>Orol fojiasidan yashil energiyagacha.</p></section>
+<section class="wrap narrow timeline">{% for b in bolimlar %}
+  <div class="tl reveal"><span class="dot">{{ loop.index }}</span><div><h3>{{ b.nomi }}</h3><p>{{ b.matn }}</p></div></div>
+{% endfor %}
+<div class="box good"><h3>🇺🇿 Muhim sanalar</h3><ul><li>5-iyun — Butunjahon atrof-muhitni muhofaza qilish kuni</li><li>22-aprel — Yer kuni</li><li>22-mart — Butunjahon suv kuni</li><li>Har bahor va kuz — "Yashil makon" ko'chat ekish aksiyalari</li></ul></div>
+</section>
+{% endblock %}

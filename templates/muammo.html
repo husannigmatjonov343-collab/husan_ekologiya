@@ -1,0 +1,13 @@
+{% extends "base.html" %}{% block title %}{{ m.nomi }} — EkoDunyo{% endblock %}
+{% block content %}
+<section class="page-head"><div class="ic xl">{{ m.icon }}</div><h1>{{ m.nomi }}</h1><p>{{ m.qisqa }}</p></section>
+<section class="wrap narrow">
+  <p class="lead">{{ m.matn }}</p>
+  <div class="split">
+    <div class="box bad"><h3>⚠️ Sabablari</h3><ul>{% for s in m.sabablar %}<li>{{ s }}</li>{% endfor %}</ul></div>
+    <div class="box good"><h3>✅ Yechimlari</h3><ul>{% for s in m.yechimlar %}<li>{{ s }}</li>{% endfor %}</ul></div>
+  </div>
+  <h2 class="title">Boshqa muammolar</h2>
+  <div class="grid three">{% for b in boshqa %}<a class="card" href="/muammo/{{ b.slug }}"><div class="ic">{{ b.icon }}</div><h3>{{ b.nomi }}</h3></a>{% endfor %}</div>
+</section>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <div class="leaves"></div>
+  <div class="hero-in">
+    <span class="tag">Ekologiya portali</span>
+    <h1>Sayyoramiz — <em>yagona uyimiz</em></h1>
+    <p>Iqlim o'zgarishi, suv tanqisligi, plastik chiqindilar... Muammolarni bilib oling, karbon izingizni hisoblang va o'zgarishni o'zingizdan boshlang.</p>
+    <div class="row"><a href="/muammolar" class="btn">Muammolarni o'rganish</a><a href="/kalkulyator" class="btn ghost">Karbon izimni hisoblash</a></div>
+  </div>
+</section>
+<section class="stats">{% for s in stat %}<div class="stat reveal"><b class="count">{{ s.raqam }}</b><span>{{ s.nomi }}</span></div>{% endfor %}</section>
+<section class="wrap">
+  <h2 class="title">Asosiy ekologik muammolar</h2>
+  <div class="grid">{% for m in muammolar %}
+    <a class="card reveal" href="/muammo/{{ m.slug }}"><div class="ic">{{ m.icon }}</div><h3>{{ m.nomi }}</h3><p>{{ m.qisqa }}</p><span class="more">Batafsil →</span></a>
+  {% endfor %}</div>
+</section>
+<section class="band"><div class="wrap split">
+  <div><h2>Bilasizmi?</h2><p id="fact" class="fact">Bitta daraxt yiliga 4 kishini kislorod bilan ta'minlaydi.</p><button class="btn ghost" id="nextFact">Yana bir fakt</button></div>
+  <div class="cta-box"><h3>Bilimingizni sinang</h3><p>10 savoldan iborat ekologik test.</p><a href="/test" class="btn">Testni boshlash</a></div>
+</div></section>
+<section class="wrap">
+  <h2 class="title">So'nggi yangiliklar</h2>
+  <div class="grid three">{% for y in yangiliklar %}
+    <article class="news reveal"><span class="tag">{{ y.kategoriya }}</span><h3>{{ y.sarlavha }}</h3><p>{{ y.matn }}</p><small>{{ y.sana }}</small></article>
+  {% endfor %}</div>
+  <p class="center"><a href="/yangiliklar" class="btn ghost">Barcha yangiliklar</a></p>
+</section>
+{% endblock %}

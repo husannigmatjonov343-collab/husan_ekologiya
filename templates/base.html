@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}EkoDunyo — Ekologiya{% endblock %}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;800&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div id="progress"></div>
+<header class="nav">
+  <a href="/" class="logo">🌿 Eko<span>Dunyo</span></a>
+  <button class="burger" id="burger" aria-label="Menyu">☰</button>
+  <nav id="menu">
+    <a href="/" class="{{ 'on' if sahifa=='index.html' }}">Bosh sahifa</a>
+    <a href="/muammolar" class="{{ 'on' if sahifa in ['muammolar.html','muammo.html'] }}">Muammolar</a>
+    <a href="/ozbekiston" class="{{ 'on' if sahifa=='ozbekiston.html' }}">O'zbekiston</a>
+    <a href="/yangiliklar" class="{{ 'on' if sahifa=='yangiliklar.html' }}">Yangiliklar</a>
+    <a href="/kalkulyator" class="{{ 'on' if sahifa=='kalkulyator.html' }}">Kalkulyator</a>
+    <a href="/test" class="{{ 'on' if sahifa=='test.html' }}">Test</a>
+    <a href="/maslahatlar" class="{{ 'on' if sahifa=='maslahatlar.html' }}">Maslahatlar</a>
+    <a href="/aloqa" class="{{ 'on' if sahifa=='aloqa.html' }}">Aloqa</a>
+    <form action="/qidiruv" class="search"><input name="q" placeholder="Qidirish..."></form>
+  </nav>
+</header>
+<main>{% block content %}{% endblock %}</main>
+<footer class="footer">
+  <div class="fgrid">
+    <div><a href="/" class="logo">🌿 Eko<span>Dunyo</span></a><p>Tabiatni asrash — kelajakni asrash. Ekologik bilim va amaliy yechimlar portali.</p></div>
+    <div><h4>Bo'limlar</h4><a href="/muammolar">Muammolar</a><a href="/ozbekiston">O'zbekiston</a><a href="/yangiliklar">Yangiliklar</a><a href="/docs">API</a></div>
+    <div><h4>Yangiliklarga obuna</h4>
+      <form action="/obuna" method="post" class="sub"><input type="email" name="email" required placeholder="Email"><button class="btn">Obuna</button></form></div>
+  </div>
+  <p class="copy">© 2026 EkoDunyo. FastAPI bilan yaratilgan.</p>
+</footer>
+<button id="top" aria-label="Yuqoriga">↑</button>
+<script src="/static/app.js"></script>
+</body></html>

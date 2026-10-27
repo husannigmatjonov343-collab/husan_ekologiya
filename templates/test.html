@@ -1,0 +1,18 @@
+{% extends "base.html" %}{% block title %}Ekologik test — EkoDunyo{% endblock %}
+{% block content %}
+<section class="page-head"><h1>Ekologik bilim testi</h1><p>{{ test|length }} ta savol. Omad!</p></section>
+<section class="wrap narrow">
+{% if natija %}<div class="box good"><h2>Natijangiz: {{ natija.ball }} / {{ natija.jami }}</h2>
+  <ul>{% for j in natija.javoblar %}<li>{{ '✅' if j.ok else '❌' }} {{ j.savol }} {% if not j.ok %}<small>— To'g'ri: {{ j.togri }}</small>{% endif %}</li>{% endfor %}</ul>
+  <a href="/test" class="btn">Qayta topshirish</a></div>
+{% else %}
+<form method="post" class="form">
+  <label class="box">Ismingiz<input name="ism" required placeholder="Ism"></label>
+  {% for s in test %}{% set i = loop.index0 %}<div class="box q"><h3>{{ loop.index }}. {{ s.savol }}</h3>
+    {% for v in s.variantlar %}<label class="opt"><input type="radio" name="s{{ i }}" value="{{ loop.index0 }}" required> {{ v }}</label>{% endfor %}</div>{% endfor %}
+  <button class="btn">Natijani ko'rish</button>
+</form>{% endif %}
+{% if top %}<h2 class="title">🏆 Eng yaxshi natijalar</h2><table class="tbl"><tr><th>#</th><th>Ism</th><th>Ball</th><th>Sana</th></tr>
+{% for r in top %}<tr><td>{{ loop.index }}</td><td>{{ r[0] }}</td><td>{{ r[1] }}</td><td>{{ r[2] }}</td></tr>{% endfor %}</table>{% endif %}
+</section>
+{% endblock %}

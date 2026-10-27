@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block title %}Qidiruv — EkoDunyo{% endblock %}
+{% block content %}
+<section class="page-head"><h1>Qidiruv</h1><form action="/qidiruv"><input class="filter" name="q" value="{{ q }}" placeholder="Masalan: suv, plastik, Orol"></form></section>
+<section class="wrap narrow">{% if q %}<p>"{{ q }}" bo'yicha {{ nat|length }} ta natija</p>{% endif %}
+{% for n in nat %}<a class="box res" href="{{ n.url }}"><span class="tag">{{ n.tur }}</span><h3>{{ n.nomi }}</h3><p>{{ n.qisqa }}</p></a>{% endfor %}</section>
+{% endblock %}

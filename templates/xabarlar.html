@@ -1,0 +1,5 @@
+{% extends "base.html" %}{% block content %}
+<section class="page-head"><h1>Kelgan xabarlar</h1></section>
+<section class="wrap"><table class="tbl"><tr><th>Ism</th><th>Email</th><th>Mavzu</th><th>Xabar</th><th>Sana</th></tr>
+{% for r in rows %}<tr>{% for c in r %}<td>{{ c }}</td>{% endfor %}</tr>{% else %}<tr><td colspan="5">Hozircha xabar yo'q</td></tr>{% endfor %}</table></section>
+{% endblock %}
